@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Weather App</h1>
+
+    <form id="locationForm">
+      <label for="locationInput">Enter location:</label>
+      <input type="text" id="locationInput" required />
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="loading" style="display: none">Loading...</div>
+    <div id="weatherData"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
