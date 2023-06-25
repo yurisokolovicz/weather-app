@@ -23,8 +23,11 @@ function processWeatherData(data) {
     const location = data.location.name;
     const temperature = data.current.temp_c;
     const condition = data.current.condition.text;
+    const humidity = data.current.humidity;
+    const precipitation = data.current.precip_mm;
+    const windSpeed = data.current.wind_kph;
 
-    return { location, temperature, condition };
+    return { location, temperature, condition, humidity, precipitation, windSpeed };
 }
 
 function displayWeatherData(weatherData) {
@@ -33,6 +36,9 @@ function displayWeatherData(weatherData) {
     <h2>Weather in ${weatherData.location}</h2>
     <p>Temperature: ${weatherData.temperature}°C</p>
     <p>Condition: ${weatherData.condition}</p>
+    <p>Humidity: ${weatherData.humidity}%</p>
+    <p>Precipitation: ${weatherData.precipitation}mm</p>
+    <p>Wind Speed: ${weatherData.windSpeed} km/h</p>
   `;
 }
 
