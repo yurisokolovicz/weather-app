@@ -22,10 +22,14 @@ function getWeatherData(location) {
 
 function updateBackgroundImage(condition) {
     const bodyElement = document.body;
-    if (condition.toLowerCase().includes('rain')) {
+    if (condition.toLowerCase().includes('clear')) {
+        bodyElement.style.backgroundImage = 'url("../img/clear.jpeg")';
+    } else if (condition.toLowerCase().includes('rain')) {
         bodyElement.style.backgroundImage = 'url("../img/rain.jpeg")';
-    } else {
-        bodyElement.style.backgroundImage = 'url("../img/sky.jpeg")';
+    } else if (condition.toLowerCase().includes('snow')) {
+        bodyElement.style.backgroundImage = 'url("../img/snow.jpeg")';
+    } else if (condition.toLowerCase().includes('cloud')) {
+        bodyElement.style.backgroundImage = 'url("../img/cloud1.jpeg")';
     }
 }
 
