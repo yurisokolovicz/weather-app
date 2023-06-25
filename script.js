@@ -54,7 +54,20 @@ function displayWeatherData(weatherData) {
     <p>Precipitation: ${weatherData.precipitation}mm</p>
     <p>Wind Speed: ${weatherData.windSpeed} km/h</p>
   `;
+    verifyWeatherDisplay();
 }
+
+function verifyWeatherDisplay() {
+    const weatherElement = document.getElementById('weatherData');
+
+    if (weatherElement.hasChildNodes()) {
+        weatherElement.style.display = '';
+    } else {
+        weatherElement.style.display = 'none';
+    }
+}
+
+verifyWeatherDisplay();
 
 const locationForm = document.getElementById('locationForm');
 locationForm.addEventListener('submit', event => {
