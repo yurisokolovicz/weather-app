@@ -3,23 +3,33 @@ function getWeatherData(location) {
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}`;
 
     const loadingElement = document.getElementById('loading');
+    const weatherElement = document.getElementById('weatherData');
+
     loadingElement.style.display = 'block';
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error(response.statusText);
+            }
+        })
         .then(data => {
             const weatherData = processWeatherData(data);
+            console.log(data);
             displayWeatherData(weatherData);
             updateBackgroundImage(weatherData.condition);
         })
         .catch(error => {
-            console.log('Error:', error);
+            weatherElement.innerHTML = `<h3>Location does not exist.</h3>`;
+            console.error('Error:', error);
+            verifyWeatherDisplay();
         })
         .finally(() => {
             loadingElement.style.display = 'none';
         });
 }
-
 function updateBackgroundImage(condition) {
     const bodyElement = document.body;
     if (condition.toLowerCase().includes('clear')) {
@@ -59,7 +69,6 @@ function displayWeatherData(weatherData) {
 
 function verifyWeatherDisplay() {
     const weatherElement = document.getElementById('weatherData');
-
     if (weatherElement.hasChildNodes()) {
         weatherElement.style.display = '';
     } else {
