@@ -1,0 +1,80 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 15rem 5rem;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url('./img/sky.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center bottom; */
+}
+
+h1 {
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #13a21f;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+form {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+input[type='text'] {
+    width: 20rem;
+    padding: 10px;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+button[type='submit'] {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 20px 16px;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #359353;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button[type='submit']:hover {
+    background-color: #0056b3;
+}
+
+#loading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#weatherData {
+    font-size: 1.8rem;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#weatherData h2 {
+    margin-top: 0;
+}
+
+#weatherData p {
+    margin-bottom: 8px;
+}

@@ -10,6 +10,7 @@ function getWeatherData(location) {
         .then(data => {
             const weatherData = processWeatherData(data);
             displayWeatherData(weatherData);
+            updateBackgroundImage(weatherData.condition);
         })
         .catch(error => {
             console.log('Error:', error);
@@ -17,6 +18,15 @@ function getWeatherData(location) {
         .finally(() => {
             loadingElement.style.display = 'none';
         });
+}
+
+function updateBackgroundImage(condition) {
+    const bodyElement = document.body;
+    if (condition.toLowerCase().includes('rain')) {
+        bodyElement.style.backgroundImage = 'url("../img/rain.jpeg")';
+    } else {
+        bodyElement.style.backgroundImage = 'url("../img/sky.jpeg")';
+    }
 }
 
 function processWeatherData(data) {
