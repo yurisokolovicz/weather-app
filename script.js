@@ -30,16 +30,67 @@ function getWeatherData(location) {
             loadingElement.style.display = 'none';
         });
 }
+
 function updateBackgroundImage(condition) {
     const bodyElement = document.body;
-    if (condition.toLowerCase().includes('clear')) {
+    const lowercaseCondition = condition.toLowerCase();
+
+    if (lowercaseCondition.includes('clear')) {
         bodyElement.style.backgroundImage = 'url("../img/clear.jpeg")';
-    } else if (condition.toLowerCase().includes('rain')) {
+    } else if (lowercaseCondition.includes('rain')) {
         bodyElement.style.backgroundImage = 'url("../img/rain.jpeg")';
-    } else if (condition.toLowerCase().includes('snow')) {
+    } else if (lowercaseCondition.includes('snow')) {
         bodyElement.style.backgroundImage = 'url("../img/snow.jpeg")';
-    } else if (condition.toLowerCase().includes('cloud')) {
+    } else if (lowercaseCondition.includes('cloud') || lowercaseCondition.includes('overcast')) {
         bodyElement.style.backgroundImage = 'url("../img/cloud1.jpeg")';
+    } else {
+        bodyElement.style.backgroundImage = 'url("../img/cloud.jpeg")';
+    }
+}
+
+function updateBackgroundImage(condition) {
+    const bodyElement = document.body;
+    const lowercaseCondition = condition.toLowerCase();
+
+    if (lowercaseCondition.includes('clear')) {
+        bodyElement.style.backgroundImage = 'url("../img/clear.jpeg")';
+    } else if (lowercaseCondition.includes('sunny')) {
+        bodyElement.style.backgroundImage = 'url("../img/sunny.jpeg")';
+    } else if (lowercaseCondition.includes('partly cloudy')) {
+        bodyElement.style.backgroundImage = 'url("../img/partly_cloudy.jpeg")';
+    } else if (lowercaseCondition.includes('cloudy') || lowercaseCondition.includes('overcast')) {
+        bodyElement.style.backgroundImage = 'url("../img/cloudy.jpeg")';
+    } else if (lowercaseCondition.includes('mist')) {
+        bodyElement.style.backgroundImage = 'url("../img/mist.jpeg")';
+    } else if (lowercaseCondition.includes('fog')) {
+        bodyElement.style.backgroundImage = 'url("../img/fog.jpeg")';
+    } else if (lowercaseCondition.includes('haze')) {
+        bodyElement.style.backgroundImage = 'url("../img/haze.jpeg")';
+    } else if (lowercaseCondition.includes('smoke')) {
+        bodyElement.style.backgroundImage = 'url("../img/smoke.jpeg")';
+    } else if (lowercaseCondition.includes('dust')) {
+        bodyElement.style.backgroundImage = 'url("../img/dust.jpeg")';
+    } else if (lowercaseCondition.includes('sand')) {
+        bodyElement.style.backgroundImage = 'url("../img/sand.jpeg")';
+    } else if (lowercaseCondition.includes('rain') || lowercaseCondition.includes('showers')) {
+        bodyElement.style.backgroundImage = 'url("../img/rain.jpeg")';
+    } else if (lowercaseCondition.includes('drizzle')) {
+        bodyElement.style.backgroundImage = 'url("../img/drizzle.jpeg")';
+    } else if (lowercaseCondition.includes('thunderstorm')) {
+        // Start over from here below, the ones above I've already done.
+        bodyElement.style.backgroundImage = 'url("../img/thunderstorm.jpeg")';
+    } else if (lowercaseCondition.includes('snow')) {
+        bodyElement.style.backgroundImage = 'url("../img/snow.jpeg")';
+    } else if (lowercaseCondition.includes('blowing snow')) {
+        bodyElement.style.backgroundImage = 'url("../img/blowing_snow.jpeg")';
+    } else if (lowercaseCondition.includes('sleet')) {
+        bodyElement.style.backgroundImage = 'url("../img/sleet.jpeg")';
+    } else if (lowercaseCondition.includes('freezing rain')) {
+        bodyElement.style.backgroundImage = 'url("../img/freezing_rain.jpeg")';
+    } else if (lowercaseCondition.includes('ice pellets')) {
+        bodyElement.style.backgroundImage = 'url("../img/ice_pellets.jpeg")';
+    } else {
+        bodyElement.style.backgroundImage = 'url("../img/default.jpg")';
     }
 }
 
@@ -64,6 +115,10 @@ function displayWeatherData(weatherData) {
     <p>Precipitation: ${weatherData.precipitation}mm</p>
     <p>Wind Speed: ${weatherData.windSpeed} km/h</p>
   `;
+
+    const locationInput = document.getElementById('locationInput');
+    locationInput.value = '';
+
     verifyWeatherDisplay();
 }
 
