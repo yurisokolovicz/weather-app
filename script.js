@@ -82,7 +82,6 @@ function updateBackgroundImage(condition) {
         bodyElement.style.backgroundImage = 'url("../img/snow.jpeg")';
     } else if (lowercaseCondition.includes('blowing snow')) {
         bodyElement.style.backgroundImage = 'url("../img/blowing_snow.jpeg")';
-        // Start over from here below, the ones above I've already done.
     } else if (lowercaseCondition.includes('sleet')) {
         bodyElement.style.backgroundImage = 'url("../img/sleet.jpeg")';
     } else if (lowercaseCondition.includes('freezing rain')) {
