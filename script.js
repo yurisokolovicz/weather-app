@@ -37,23 +37,6 @@ function updateBackgroundImage(condition) {
 
     if (lowercaseCondition.includes('clear')) {
         bodyElement.style.backgroundImage = 'url("../img/clear.jpeg")';
-    } else if (lowercaseCondition.includes('rain')) {
-        bodyElement.style.backgroundImage = 'url("../img/rain.jpeg")';
-    } else if (lowercaseCondition.includes('snow')) {
-        bodyElement.style.backgroundImage = 'url("../img/snow.jpeg")';
-    } else if (lowercaseCondition.includes('cloud') || lowercaseCondition.includes('overcast')) {
-        bodyElement.style.backgroundImage = 'url("../img/cloud1.jpeg")';
-    } else {
-        bodyElement.style.backgroundImage = 'url("../img/cloud.jpeg")';
-    }
-}
-
-function updateBackgroundImage(condition) {
-    const bodyElement = document.body;
-    const lowercaseCondition = condition.toLowerCase();
-
-    if (lowercaseCondition.includes('clear')) {
-        bodyElement.style.backgroundImage = 'url("../img/clear.jpeg")';
     } else if (lowercaseCondition.includes('sunny')) {
         bodyElement.style.backgroundImage = 'url("../img/sunny.jpeg")';
     } else if (lowercaseCondition.includes('partly cloudy')) {
