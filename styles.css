@@ -1,17 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 15rem 5rem;
+    margin: 0;
     padding: 0;
     background-color: #f5f5f5;
     background-image: url('./img/sky.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: center bottom; */
+    background-position: center;
+}
+
+.container {
+    padding: 15rem 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     font-size: 5rem;
-    text-align: center;
     margin-top: 20px;
     color: #13a21f;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
@@ -19,7 +26,6 @@ h1 {
 
 form {
     font-size: 3rem;
-    text-align: center;
     margin-top: 20px;
 }
 
@@ -46,7 +52,7 @@ button[type='submit'] {
     font-size: 2rem;
     border-radius: 20px;
     border: none;
-    background-color: #359353;
+    background: linear-gradient(140deg, #205d34 0%, #69e869 100%);
     color: #fff;
     font-weight: 700;
     cursor: pointer;
@@ -54,6 +60,32 @@ button[type='submit'] {
 
 button[type='submit']:hover {
     background-color: #0056b3;
+}
+
+.github-button {
+    background-color: black;
+    color: white;
+    padding: 12px 12px;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-button a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.github-button ion-icon {
+    font-size: 45px;
+    margin-right: 8px;
 }
 
 #loading {
@@ -66,7 +98,7 @@ button[type='submit']:hover {
     max-width: 550px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.29);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -77,4 +109,61 @@ button[type='submit']:hover {
 
 #weatherData p {
     margin-bottom: 8px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        padding: 10rem 8rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    form {
+        font-size: 3rem;
+    }
+
+    input[type='text'] {
+        width: 30rem;
+        font-size: 2.5rem;
+    }
+
+    button[type='submit'] {
+        padding: 20px 16px;
+    }
+
+    .github-button {
+        font-size: 3rem;
+        padding: 16px 24px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        padding: 5rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    form {
+        font-size: 2rem;
+    }
+
+    input[type='text'] {
+        width: 15rem;
+        font-size: 1.5rem;
+    }
+
+    button[type='submit'] {
+        padding: 12;
+    }
 }
