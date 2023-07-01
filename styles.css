@@ -34,6 +34,7 @@ label {
     font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
+    margin-right: 1rem;
 }
 
 input[type='text'] {
@@ -48,7 +49,7 @@ input[type='text'] {
 button[type='submit'] {
     margin-top: 2rem;
     margin-bottom: 1rem;
-    padding: 20px 16px;
+    padding: 15px 12px;
     font-size: 2rem;
     border-radius: 20px;
     border: none;
@@ -91,6 +92,8 @@ button[type='submit']:hover {
 #loading {
     text-align: center;
     margin-top: 20px;
+    font-size: 2.5rem;
+    color: white;
 }
 
 #weatherData {
@@ -98,7 +101,7 @@ button[type='submit']:hover {
     max-width: 550px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.29);
+    background-color: rgba(255, 255, 255, 0.43);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -124,6 +127,12 @@ button[type='submit']:hover {
         font-size: 3rem;
     }
 
+    .search-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     input[type='text'] {
         width: 30rem;
         font-size: 2.5rem;
@@ -136,6 +145,12 @@ button[type='submit']:hover {
     .github-button {
         font-size: 3rem;
         padding: 16px 24px;
+    }
+
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 
@@ -161,9 +176,5 @@ button[type='submit']:hover {
     input[type='text'] {
         width: 15rem;
         font-size: 1.5rem;
-    }
-
-    button[type='submit'] {
-        padding: 12;
     }
 }
