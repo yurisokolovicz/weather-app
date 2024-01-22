@@ -96,7 +96,7 @@ function displayWeatherData(weatherData) {
     <p>Humidity: ${weatherData.humidity}%</p>
     <p>Precipitation: ${weatherData.precipitation}mm</p>
     <p>Wind Speed: ${weatherData.windSpeed} km/h</p>
-  `;
+    `;
 
     const locationInput = document.getElementById('locationInput');
     locationInput.value = '';
@@ -122,3 +122,74 @@ locationForm.addEventListener('submit', event => {
     const location = locationInput.value.trim();
     getWeatherData(location);
 });
+
+function getCO2Data(location) {
+    const apiKey = '9ae8650d32c4b4ece88464b6267ec792781abd3410793fdeaa62d76df9b82447'; // Substitua 'sua-chave-da-api-open-aq' pela sua chave
+    const apiUrl = `https://api.openaq.org/v1/latest?coordinates=${encodeURIComponent(location)}&parameter=co2`;
+
+    console.log('Open AQ API URL:', apiUrl);
+
+    return fetch(apiUrl, {
+        headers: {
+            'X-API-Key': apiKey
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error(response.statusText);
+            }
+        })
+        .then(data => {
+            return data.results[0].measurements[0].value;
+        })
+        .catch(error => {
+            console.error('Error fetching CO2 data:', error);
+            return null;
+        });
+}
+
+async function getWeatherData(location) {
+    const apiKey = '05763633a9b64264b6c12601232506';
+    const weatherApiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}`;
+
+    const loadingElement = document.getElementById('loading');
+    const weatherElement = document.getElementById('weatherData');
+
+    loadingElement.style.display = 'block';
+
+    try {
+        const [weatherData, co2Level] = await Promise.all([
+            fetch(weatherApiUrl)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error(response.statusText);
+                    }
+                })
+                .then(data => processWeatherData(data)),
+
+            getCO2Data(location)
+        ]);
+
+        console.log(weatherData);
+
+        displayWeatherData(weatherData);
+
+        // Defina um limite de CO2 perigoso (por exemplo, 400 ppm) e exiba um alerta se for excedido
+        const dangerousCO2Level = 400;
+        if (co2Level !== null && co2Level > dangerousCO2Level) {
+            alert('Alerta: Níveis perigosos de CO2!'); // Você pode personalizar essa mensagem ou implementar uma notificação mais sofisticada.
+        }
+
+        updateBackgroundImage(weatherData.condition);
+    } catch (error) {
+        weatherElement.innerHTML = `<h3>Location does not exist.</h3>`;
+        console.error('Error:', error);
+        verifyWeatherDisplay();
+    } finally {
+        loadingElement.style.display = 'none';
+    }
+}
